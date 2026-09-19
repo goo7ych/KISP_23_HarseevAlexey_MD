@@ -4,7 +4,7 @@
 цель
 Создание приложение StickerSmash - приложение для работы со стикерами, которое запускается на всех трёх платфоромах.
 
-Что изучается
+    Что изучается
 
  Создание приложение с использование с шаблонра по умолчанию с включённым TypeScript.
  Двухэкранный макет с нижними вкладками через Expo Router
@@ -17,7 +17,7 @@
 Учебник рассчитан на самостоятельное прохождение
 Длительность: до 2 часов
 
-Структура
+# Структура
 Учеюник разбит на 9 глав - можно следовать подряд или возвращаться позже
 Каждая глава содержит готовые фрагменты кода - можно копировать или создавать с нуля
 Изменения в коде вывелены зеленым(н)
@@ -31,18 +31,12 @@ React;
 основы работы с терминалом;
 основы React Native.
 2. Создание проекта
-Для инициализации нового проекта используется create-expo-app:
+Для инициализации нового проекта используется       
 
-bash
+    create-expo-app:
 
-
-npx create-expo-app@latest StickerSmash
 При создании нужно выбрать версию Expo SDK, затем перейти в каталог проекта:
 
-bash
-
-
-cd StickerSmash
 Шаблон по умолчанию включает:
 
 базовый код приложения;
@@ -50,65 +44,42 @@ cd StickerSmash
 Expo Router;
 возможность запуска через Expo Go;
 поддержку Android, iOS и веба.
+
 3. Добавление материалов
 Необходимо скачать архив с ресурсами, распаковать его и заменить стандартные изображения в папке:
 
-text
-
-
-assets/images
 Затем открыть папку проекта в редакторе кода или IDE.
 
-4. Удаление шаблонного кода
+    4.Удаление шаблонного кода
 Для очистки проекта запускается специальный скрипт:
 
-bash
-
-
-npm run reset-project
 После выполнения в папке src/app остаются основные файлы:
 
-text
-
-
-index.tsx
-_layout.tsx
 Остальные стандартные файлы перемещаются в папку с примером. Это позволяет создавать приложение с нуля и самостоятельно изучать файловую навигацию Expo Router.
 
-5. Запуск приложения
+## 5. Запуск приложения
 В каталоге проекта выполняется команда:
 
-bash
-
-
-npx expo start
 После запуска:
 
-в терминале появляется QR-код;
-на Android его можно отсканировать через Expo Go;
-на iOS QR-код можно открыть стандартной камерой;
-веб-версия запускается клавишей W в терминале.
-Приложение можно одновременно тестировать на мобильных устройствах и в браузере.
+    в терминале появляется QR-код;
+    на Android его можно отсканировать через Expo Go;
+    на iOS QR-код можно открыть стандартной камерой;
+    веб-версия запускается клавишей W в терминале.
+    Приложение можно одновременно тестировать на мобильных устройствах и в браузере.
 
-6. Редактирование главного экрана
+6.Редактирование главного экрана
 Главный экран описывается файлом:
 
-text
-
-
-src/app/index.tsx
 В нём используются базовые компоненты React Native:
 
-View — контейнер;
-Text — текст;
-StyleSheet — создание стилей.
+    View — контейнер;
+    Text — текст;
+    StyleSheet — создание стилей.
+
 Пример кода:
 
-tsx
-
-
-import { Text, View, StyleSheet } from 'react-native';
-
+```tsx
 export default function Index() {
   return (
     <View style={styles.container}>
@@ -128,41 +99,31 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+```
 7. Основные изменения в коде
 Импортирован StyleSheet из react-native.
 Для контейнера задан тёмный фон:
 tsx
 
 
-backgroundColor: '#25292e'
 Текст изменён на Home screen.
 Цвет текста установлен белым:
-tsx
 
 
-color: '#fff'
+
 alignItems: 'center' выравнивает содержимое по горизонтали.
 justifyContent: 'center' выравнивает содержимое по вертикали.
 flex: 1 растягивает контейнер на весь экран.
+
 8. Цвета в React Native
 React Native поддерживает стандартные форматы цветов:
 
-HEX: #fff, #25292e;
-RGB;
-RGBA;
-HSL;
 названия цветов: red, white, blue и другие.
 После сохранения файла изменения автоматически применяются в приложениях, подключённых к серверу разработки.
 
-Итоговый порядок действий
-bash
+## Итоговый порядок действий
 
 
-npx create-expo-app@latest StickerSmash
-cd StickerSmash
-npm run reset-project
-npx expo start
-После этого можно редактировать src/app/index.tsx и сразу видеть изменения на Android, iOS и в веб-браузере.
 
 Конспект: добавление навигации в Expo
 Expo Router использует файловую маршрутизацию: файлы внутри src/app автоматически становятся экранами приложения и веб-страницами.
@@ -177,19 +138,9 @@ about.tsx соответствует маршруту /about.
 2. Создание нового экрана
 Создайте файл:
 
-text
 
-
-src/app/about.tsx
-Пример экрана:
-
-tsx
-
-
-import { Text, View, StyleSheet } from 'react-native';
-
-export default function AboutScreen() {
-  return (
+``` txs
+return (
     <View style={styles.container}>
       <Text style={styles.text}>About screen</Text>
     </View>
@@ -207,14 +158,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+```
 3. Настройка стека экранов
 В файле src/app/_layout.tsx используется компонент Stack:
 
-tsx
-
-
-import { Stack } from 'expo-router';
-
+```txs
 export default function RootLayout() {
   return (
     <Stack>
@@ -223,54 +171,15 @@ export default function RootLayout() {
     </Stack>
   );
 }
+```
 Stack создаёт навигацию по стеку. Пользователь может переходить между экранами, а новый экран открывается поверх предыдущего.
 
-4. Переход между экранами
-Для переходов используется компонент Link из expo-router.
-
-В src/app/index.tsx добавьте:
-
-tsx
-
-
-import { Link } from 'expo-router';
-Затем разместите ссылку:
-
-tsx
-
-
-<Link href="/about" style={styles.button}>
-  Go to About screen
-</Link>
-Стиль ссылки:
-
-tsx
-
-
-button: {
-  fontSize: 20,
-  textDecorationLine: 'underline',
-  color: '#fff',
-},
-href="/about" указывает на экран about.tsx.
-
-5. Обработка несуществующих маршрутов
+## 5. Обработка несуществующих маршрутов
 Для пользовательского экрана ошибки создайте файл:
 
 text
-
-
-src/app/+not-found.tsx
-Пример:
-
-tsx
-
-
-import { View, StyleSheet } from 'react-native';
-import { Link, Stack } from 'expo-router';
-
-export default function NotFoundScreen() {
-  return (
+```tsx
+   Пример:
     <>
       <Stack.Screen options={{ title: 'Oops! Not Found' }} />
 
@@ -280,9 +189,8 @@ export default function NotFoundScreen() {
         </Link>
       </View>
     </>
-  );
-}
 
+```tsx
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -296,33 +204,18 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+```
 Файл +not-found.tsx обрабатывает маршруты, которых не существует, например:
 
-text
-
-
-/123
-6. Создание нижней панели вкладок
-Создайте каталог:
-
-text
-
-
-src/app/(tabs)
+## 6. Создание нижней панели вкладок
 Переместите в него файлы:
 
-text
-
-
-index.tsx
-about.tsx
+```tsx
 Круглые скобки в имени (tabs) означают, что это группа маршрутов. Она группирует экраны, но не добавляет отдельный сегмент в URL.
+```
 
 Итоговая структура:
-
-text
-
-
+```tsx
 src
 └── app
     ├── _layout.tsx
@@ -331,12 +224,14 @@ src
         ├── _layout.tsx
         ├── index.tsx
         └── about.tsx
+```
+
 7. Настройка корневого макета
 Обновите src/app/_layout.tsx:
 
-tsx
 
 
+```tsx
 import { Stack } from 'expo-router';
 
 export default function RootLayout() {
@@ -349,22 +244,15 @@ export default function RootLayout() {
     </Stack>
   );
 }
+```
 Корневой Stack будет отображать навигатор вкладок внутри приложения.
 
 8. Создание навигатора вкладок
 Создайте файл:
 
-text
-
-
-src/app/(tabs)/_layout.tsx
-Добавьте:
-
-tsx
-
 
 import { Tabs } from 'expo-router';
-
+```tsx
 export default function TabLayout() {
   return (
     <Tabs>
@@ -373,6 +261,7 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+```
 Теперь приложение содержит две вкладки:
 
 Home;
@@ -445,24 +334,6 @@ export default function TabLayout() {
 11. Настройка внешнего вида
 Чтобы изменить цвет заголовка и нижней панели, используйте screenOptions:
 
-tsx
-
-
-<Tabs
-  screenOptions={{
-    tabBarActiveTintColor: '#ffd33d',
-    headerStyle: {
-      backgroundColor: '#25292e',
-    },
-    headerShadowVisible: false,
-    headerTintColor: '#fff',
-    tabBarStyle: {
-      backgroundColor: '#25292e',
-    },
-  }}
->
-Здесь:
-
 tabBarActiveTintColor задаёт цвет активной вкладки;
 headerStyle.backgroundColor изменяет фон заголовка;
 headerShadowVisible: false убирает тень заголовка;
@@ -526,7 +397,7 @@ image: {
 src/components/image-viewer.tsx
 ```
 
-Код компонента:
+# Код компонента:
 
 ```tsx
 import { ImageSourcePropType, StyleSheet } from 'react-native';
@@ -1366,7 +1237,7 @@ Guides for Android / iOS Как создать production build
 ·   iOS
 ·   Web
 
-Пройденные темы:
+## Пройденные темы:
 
 1. Создание Expo-проекта
 2. Файловая навигация (Expo Router) — стек + табы
